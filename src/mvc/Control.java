@@ -19,6 +19,7 @@ public class Control {
 	}
 	
 	public void insertGoods() {
-		
+		unko = new unko;
+	}
 	}
 }
