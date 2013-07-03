@@ -10,10 +10,13 @@ public class Control {
 	private int newGid;
 	private int newMid;
 
+	/**
+	 * 画面を呼び出す。
+	 */
 	public void firstDisplay() {
 		goods.add(new Goods(0,"ぽっきー",140,0,3));
-		goods.add(new Goods(1,"unko", 1000,1,5));
-		goods.add(new Goods(2,"unkokko",200,1,5));
+		goods.add(new Goods(1,"ハイチュウ", 150,1,5));
+		goods.add(new Goods(2,"便器",200,1,5));
 
 		maker.add(new Maker(0,"明治","電話番号なんてなかった","どっか"));
 		maker.add(new Maker(1,"森永","電話番号ってなに？","日本のどこか"));
@@ -21,6 +24,10 @@ public class Control {
 
 		newGid = goods.size() - 1;
 		newMid = maker.size() - 1;
+
+		View v = new View();
+		v.arrivalGoodsView();
+
 	}
 
 	public boolean checkGoodsId(int goodsId) {
@@ -88,11 +95,5 @@ public class Control {
 				f = false;
 			}
 		}
-	}
-
-	public void updateStock(int gCode,int stock,Goods g) {
-		Goods s_goods = goods.get(gCode);
-		s_goods.setStock(stock);
-		goods.set(gCode, g);
 	}
 }

@@ -13,24 +13,17 @@ public class Goods {
         this.price = price;
         this.makerId = makerId;
         this.stock = stock;
-
-
     }
 
     public int getGoodsId(){
         return this.goodsId;
-
     }
 
     public int getStock(){
         return this.stock;
-
     }
 
     public void setStock(int stock){
         this.stock = stock;
-
-
     }
-
 }
