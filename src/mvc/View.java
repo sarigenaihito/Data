@@ -31,9 +31,7 @@ public class View {
 				int price = g.getPrice();
 				int mId = g.getmakerId();
 
-				Goods newgoods = new Goods(id,name,price,mId,stock);
-
-				c.arrivalGoodsIn(newgoods);
+				c.arrivalGoodsIn(new Goods(id,name,price,mId,stock));
 			}
 
 		} catch (NumberFormatException e) {
@@ -48,7 +46,7 @@ public class View {
 	}
 
 	public void newGoodsInsertView() {
-		System.out.println("新しい商品が入荷されたようです！商品情報を入力していってください！");
+		System.out.println("未登録の商品です。商品情報を新規追加してください。");
 		int id = c.newGoodsIdAssignment();
 		try {
 		System.out.print("商品の名前\n>");
@@ -63,15 +61,13 @@ public class View {
 
 		if(!flag) {
 			mId = newMakerInsertView();
-			System.out.println("新しいメーカー情報を登録しました！！！！");
+			System.out.println("メーカー情報を登録しました。");
 		}
 
 		System.out.println("数量\n>");
 		int stock = Integer.parseInt(br.readLine());
 
-		Goods goods = new Goods(id,name,price,mId,stock);
-
-		c.arrivalGoodsIn(goods);
+		c.arrivalGoodsIn(new Goods(id,name,price,mId,stock));
 
 		} catch (NumberFormatException e) {
 			System.err.println("数値に変換できない値が入力されました。");
@@ -83,7 +79,7 @@ public class View {
 	}
 
 	public int newMakerInsertView() {
-		System.out.println("登録されていないメーカーコードが入力されました。新しいメーカーの情報を入力してください！");
+		System.out.println("未登録のメーカーです。メーカーの情報を入力してください。");
 
 		int mId = c.newMakerIdAssignment();
 		try {
@@ -96,9 +92,7 @@ public class View {
 			System.out.print("メーカーの住所\n>");
 			String address = br.readLine();
 
-			Maker maker = new Maker(mId,name,tel,address);
-
-			c.insertMaker(maker);
+			c.insertMaker(new Maker(mId,name,tel,address));
 
 		} catch (IOException e) {
 			// TODO 自動生成された catch ブロック

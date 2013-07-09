@@ -47,7 +47,7 @@ public class Control {
 			while(flag) {
 				v.arrivalGoodsView();
 				try {
-					System.out.print("まだ入力しますン？(y/n)\n>");
+					System.out.print("まだ入荷情報を入力しますか？(y/n)\n>");
 					String judg = br.readLine();
 					if (judg.equals("y")) {
 						continue insert;
