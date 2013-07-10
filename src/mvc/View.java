@@ -15,7 +15,7 @@ public class View {
 			String unko = br.readLine();
 			int id;
 			if (unko.length() == 0) {
-				id = 99999999;
+				throw new IOException();
 			} else {
 				id = Integer.parseInt(unko);
 			}
@@ -35,13 +35,12 @@ public class View {
 			}
 
 		} catch (NumberFormatException e) {
-			// TODO 自動生成された catch ブロック
-			System.err.println("数値に変換できない値が入力されました。");
+			System.err.println("数値に変換できない値が入力されました。システムを終了します。");
 			System.exit(-1);
 
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			System.err.println("入出力エラー！システムを終了します。");
+			System.exit(-2);
 		}
 	}
 
@@ -70,11 +69,12 @@ public class View {
 		c.arrivalGoodsIn(new Goods(id,name,price,mId,stock));
 
 		} catch (NumberFormatException e) {
-			System.err.println("数値に変換できない値が入力されました。");
+			System.err.println("数値に変換できない値が入力されました。システムを終了します。");
+			System.exit(-1);
 
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			System.err.println("入出力エラー！システムを終了します。");
+			System.exit(-2);
 		}
 	}
 
@@ -95,8 +95,8 @@ public class View {
 			c.insertMaker(new Maker(mId,name,tel,address));
 
 		} catch (IOException e) {
-			// TODO 自動生成された catch ブロック
-			e.printStackTrace();
+			System.err.println("入出力エラー！システムを終了します。");
+			System.exit(-2);
 		}
 		return mId;
 	}

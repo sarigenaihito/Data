@@ -54,8 +54,8 @@ public class Control {
 					}
 
 				} catch (IOException e) {
-					// TODO 自動生成された catch ブロック
-					e.printStackTrace();
+					System.err.println("入出力エラー！システムを終了します。");
+					System.exit(-2);
 				}
 
 				v.insertGoodsView();
@@ -69,22 +69,20 @@ public class Control {
 					} else {
 						System.out.println("登録を中止し、再度入力を開始します。");
 						flag = true;
-						for (int idx = 0; idx < arrivalGoods.size(); idx++) {
-							arrivalGoods.remove(idx);
-						}
+						arrivalGoods.clear();
 						continue insert;
 					}
 				} catch (IOException e) {
-					// TODO 自動生成された catch ブロック
-					e.printStackTrace();
+					System.err.println("入出力エラー！システムを終了します。");
+					System.exit(-2);
 				}
 			}
 	}
 
 	/**
 	 * 商品がすでに登録されているかどうかを調べる。
-	 * @param goodsId
-	 * @return f
+	 * @param goodsId 入力された商品ID
+	 * @return f 登録されているかされていないか
 	 */
 	public boolean checkGoodsId(int goodsId) {
 		boolean f = false;
@@ -101,7 +99,7 @@ public class Control {
 
 	/**
 	 * メーカー情報が既に登録されているか調べる。
-	 * @param makerId
+	 * @param makerId 入力されたメーカーID
 	 * @return f
 	 */
 	public boolean checkMakerId(int makerId) {
